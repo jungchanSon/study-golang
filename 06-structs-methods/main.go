@@ -3,13 +3,14 @@ package main
 import "fmt"
 
 type Person struct {
-	Name string
-	Age  int
-	City string
+	Name  string
+	Age   int
+	City  string
+	Email string
 }
 
 func (p Person) Introduce() string {
-	return fmt.Sprintf("저는 %s이고 %d살입니다. 사는 곳은 %s입니다.", p.Name, p.Age, p.City)
+	return fmt.Sprintf("저는 %s이고 %d살입니다. 사는 곳은 %s입니다.\n이메일은 %s입니다.\n", p.Name, p.Age, p.City, p.Email)
 }
 
 func (p Person) IsAdult() bool {
@@ -22,9 +23,10 @@ func (p *Person) HaveBirthday() {
 
 func main() {
 	person := Person{
-		Name: "Alice",
-		Age:  20,
-		City: "Seoul",
+		Name:  "Alice",
+		Age:   20,
+		City:  "Seoul",
+		Email: "sonjungchan@sonjungchan.com",
 	}
 
 	fmt.Println(person.Introduce())

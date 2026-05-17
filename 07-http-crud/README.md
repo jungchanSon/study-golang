@@ -22,12 +22,16 @@ go run ./07-http-crud
 curl http://localhost:8080/users
 ```
 
+```bash
+curl 'http://localhost:8080/users?minAge=20'
+```
+
 ### 생성
 
 ```bash
 curl -X POST http://localhost:8080/users \
   -H 'Content-Type: application/json' \
-  -d '{"name":"Alice","age":25}'
+  -d '{"name":"Alice","age":25,"email":"alice@example.com"}'
 ```
 
 ### 단건 조회
@@ -41,7 +45,7 @@ curl http://localhost:8080/users/1
 ```bash
 curl -X PUT http://localhost:8080/users/1 \
   -H 'Content-Type: application/json' \
-  -d '{"name":"Alice Kim","age":26}'
+  -d '{"name":"Alice Kim","age":26,"email":"alice.kim@example.com"}'
 ```
 
 ### 삭제
@@ -55,10 +59,4 @@ curl -X DELETE http://localhost:8080/users/1
 - `http.HandleFunc`는 URL 경로와 처리 함수를 연결합니다.
 - `json.NewDecoder(r.Body).Decode(&req)`는 요청 JSON을 구조체에 채웁니다.
 - `json.NewEncoder(w).Encode(value)`는 응답 값을 JSON으로 씁니다.
-- 현재 저장소는 메모리 슬라이스입니다. 서버를 재시작하면 데이터가 사라집니다.
-
-## 실습
-
-- `GET /users?minAge=20`처럼 특정 나이 이상만 조회하는 기능을 추가해 보세요.
-- `Email` 필드를 추가하고 생성, 수정, 조회 응답에 포함해 보세요.
-- 전역 변수 대신 `type Store struct`를 만들어 저장소 로직을 메서드로 분리해 보세요.
+- 현재 저장소는 `Store` 구조체 안의 메모리 슬라이스입니다. 서버를 재시작하면 데이터가 사라집니다.

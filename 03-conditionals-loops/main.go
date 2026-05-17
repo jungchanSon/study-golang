@@ -37,4 +37,7 @@ func main() {
 	for index, value := range fruits {
 		fmt.Printf("[%d] %s\n", index, value)
 	}
+	for i := 0; i <= 10; i++ {
+		fmt.Println("0부터 10: ", i)
+	}
 }

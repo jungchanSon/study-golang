@@ -18,13 +18,19 @@ func main() {
 		"Bob":   75,
 	}
 	scores["Carol"] = 88
+	scores["손정찬"] = 50
 
 	aliceScore, ok := scores["Alice"]
 	if ok {
 		fmt.Println("Alice score:", aliceScore)
 	}
 
+	sum := 0
 	for name, score := range scores {
-		fmt.Printf("%s: %d점\n", name, score)
+
+		fmt.Printf("%s: %d점 더하기 \n ", name, score)
+		sum += score
 	}
+
+	println("평균 점수 : ", sum/len(scores))
 }

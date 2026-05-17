@@ -16,7 +16,13 @@ func divide(a, b float64) (float64, error) {
 	return a / b, nil
 }
 
+func add(a, b int) int {
+	return a + b
+}
+
 func main() {
+	fmt.Println("a(10) + b(15) = ", add(10, 15))
+
 	fmt.Println(greet("Alice"))
 
 	result, err := divide(10, 3)

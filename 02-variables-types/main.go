@@ -9,6 +9,10 @@ func main() {
 	score := 98.5
 	isStudent := true
 
+	height := 100
+	email := "alice@example"
+	isAdmin := false
+
 	fmt.Println("name:", name)
 	fmt.Println("age:", age)
 	fmt.Println("city:", city)
@@ -20,4 +24,8 @@ func main() {
 
 	fmt.Printf("type of score: %T\n", score)
 	fmt.Printf("score with one decimal place: %.1f\n", score)
+
+	fmt.Println("height: ", height)
+	fmt.Println("email: ", email)
+	fmt.Print("isAdmin: %s", isAdmin)
 }
